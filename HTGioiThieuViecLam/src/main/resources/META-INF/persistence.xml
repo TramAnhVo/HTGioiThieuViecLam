@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="com.vtta_HTGioiThieuViecLam_war_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.vtta.pojo.Job</class>
+    <class>com.vtta.pojo.Company</class>
+    <class>com.vtta.pojo.Major</class>
+    <class>com.vtta.pojo.User</class>
+    <class>com.vtta.pojo.Comment</class>
+    <class>com.vtta.pojo.Location</class>
+    <class>com.vtta.pojo.MajorJob</class>
+    <class>com.vtta.pojo.Rate</class>
+    <class>com.vtta.pojo.Rank</class>
+    <class>com.vtta.pojo.Position</class>
+    <class>com.vtta.pojo.Cv</class>
+    <class>com.vtta.pojo.User_1</class>
+    <class>com.vtta.pojo.Position_1</class>
+    <class>com.vtta.pojo.Major_1</class>
+    <class>com.vtta.pojo.Company_1</class>
+    <class>com.vtta.pojo.Job_1</class>
+    <class>com.vtta.pojo.Location_1</class>
+    <class>com.vtta.pojo.Blog</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jobdb?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="Admin@123"/>
+    </properties>
+  </persistence-unit>
+</persistence>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <definition name="baseLayout"
+                template="/WEB-INF/layout/base.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/layout/header.jsp"/>
+        <put-attribute name="content" value="" />
+    </definition>
+    
+    <!-- TRANG CHỦ  -->
+    <definition name="index" extends="baseLayout"> 
+        <put-attribute name="title" value="Trang chủ"/>
+        <put-attribute name="header" value="/WEB-INF/layout/header1.jsp"/>
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/index.jsp" />
+    </definition>
+    
+    <definition name="blog" extends="baseLayout"> 
+        <put-attribute name="title" value="Trang chủ"/>
+        <put-attribute name="header" value="/WEB-INF/layout/header1.jsp"/>
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/blog.jsp" />
+    </definition>
+    
+    <!-- ADMIN  -->
+    <definition name="companies" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý công ty"/>
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/companies.jsp" />
+    </definition>
+    
+    <definition name="formAddCompany" extends="baseLayout">
+        <put-attribute name="title" value="Đăng kí thông tin doanh nghiệp"/>
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/form-add-company.jsp" />
+    </definition>
+    
+    <definition name="majors" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý chuyên ngành"/>
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/majors.jsp" />
+    </definition>
+    
+    <definition name="locations" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý địa phương"/>
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/locations.jsp" />
+    </definition>
+    
+    <definition name="jobs" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý công việc"/>
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/jobs.jsp" />
+    </definition>
+    
+    <definition name="users" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý người dùng"/>
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/users.jsp" />
+    </definition>
+    
+    <definition name="formUser" extends="baseLayout">
+        <put-attribute name="title" value="Thông tin người dùng"/>
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/form-user.jsp" />
+    </definition>
+    
+    <definition name="majorStats" extends="baseLayout">
+        <put-attribute name="header" value=""/>
+        <put-attribute name="title" value="Báo cáo thống kê"/>
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/major-stats.jsp" />
+    </definition>
+    
+    <definition name="quarterStats" extends="baseLayout">
+        <put-attribute name="header" value=""/>
+        <put-attribute name="title" value="Báo cáo thống kê theo quý"/>
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/quarter-stats.jsp" />
+    </definition>
+    
+    <definition name="yearStats" extends="baseLayout">
+        <put-attribute name="header" value=""/>
+        <put-attribute name="title" value="Báo cáo thống kê theo năm"/>
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/year-stats.jsp" />
+    </definition>
+    
+    <definition name="listCompany" extends="baseLayout">
+        <put-attribute name="header" value=""/>
+        <put-attribute name="title" value="Duyệt công ty"/>
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/list-company.jsp" />
+    </definition>
+    
+    <!-- USERS -->
+    
+    <!--chi tiet cong viec (index)-->
+    <definition name="jobDetail" extends="baseLayout">
+        <put-attribute name="header" value="/WEB-INF/layout/header1.jsp"/>
+        <put-attribute name="title" value="Thông tin công việc chi tiết"/>
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/job-detail.jsp" />
+    </definition>
+    
+    <definition name="indexJob" extends="baseLayout">
+        <put-attribute name="header" value="/WEB-INF/layout/header1.jsp"/>
+        <put-attribute name="title" value="Công việc"/>
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/index-job.jsp" />
+    </definition>
+    
+    <!--form dang ki cong viec admin-->
+    <definition name="formJobDetail" extends="baseLayout">
+        <put-attribute name="title" value="Thông tin công việc"/>
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/form-job-detail.jsp" />
+    </definition>
+    
+    <definition name="companyDetail" extends="baseLayout">
+        <put-attribute name="header" value="/WEB-INF/layout/header1.jsp"/>
+        <put-attribute name="title" value="Thông tin doanh nghiệp"/>
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/company-detail.jsp" />
+    </definition>
+    
+    <definition name="formApply" extends="baseLayout">
+        <put-attribute name="header" value=""/>
+        <put-attribute name="title" value="Thông tin ứng tuyển"/>
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/form-apply.jsp" />
+    </definition>
+       
+    <definition name="register" extends="baseLayout">
+        <put-attribute name="header" value=""/>
+        <put-attribute name="title" value="Đăng kí tài khoản" />
+        <put-attribute name="content" value="/WEB-INF/pages/register.jsp" />
+    </definition>
+    
+    <definition name="login" extends="baseLayout">
+        <put-attribute name="header" value=""/>
+        <put-attribute name="title" value="Đăng nhập tài khoản" />
+        <put-attribute name="content" value="/WEB-INF/pages/login.jsp" />
+    </definition>
+    
+    <definition name="profile" extends="baseLayout">
+        <put-attribute name="header" value=""/>
+        <put-attribute name="title" value="Thông tin tài khoản người dùng" />
+        <put-attribute name="content" value="/WEB-INF/pages/profile.jsp" />
+    </definition>
+    
+    <definition name="indexCompany" extends="baseLayout"> 
+        <put-attribute name="title" value="Doanh nghiệp"/>
+        <put-attribute name="header" value="/WEB-INF/layout/header1.jsp"/>
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/index-company.jsp" />
+    </definition>
+    
+    <!-- EMPLOYER -->
+    <definition name="formJob" extends="baseLayout">
+        <put-attribute name="header" value=""/>
+        <put-attribute name="title" value="Đăng bài tuyển dụng" />
+        <put-attribute name="content" value="/WEB-INF/pages/form-job.jsp" />
+    </definition>
+    
+    <definition name="manageCv" extends="baseLayout">
+        <put-attribute name="header" value=""/>
+        <put-attribute name="title" value="Quản lý hồ sơ ứng tuyển" />
+        <put-attribute name="content" value="/WEB-INF/pages/manage-cv.jsp" />
+    </definition>
+    
+    <definition name="formUpdateCompany" extends="baseLayout">
+        <put-attribute name="header" value=""/>
+        <put-attribute name="title" value="Cập nhật thông tin doanh nghiệp" />
+        <put-attribute name="content" value="/WEB-INF/pages/form-update-company.jsp" />
+    </definition>
+    
+</tiles-definitions>
+
