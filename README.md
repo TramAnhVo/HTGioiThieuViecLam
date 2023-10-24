@@ -1,1 +1,3 @@
-# HTGioiThieuViecLam
+Hệ thống giới thiệu việc làm với tính năng như
++ Đăng kí thông tin (ứng viên và nhà tuyển dụng )
++ Đăng bài tuyển dụng công việc ...
