@@ -73,7 +73,7 @@ public class CvContronller {
             SimpleMailMessage simpleMail = new SimpleMailMessage();
             simpleMail.setTo(u.getEmail());
             simpleMail.setSubject("Thông báo");
-            simpleMail.setText("Bạn đã gửi cv thành công !!!");
+            simpleMail.setText("Bạn đã gửi cv thành công cho doanh nghiệp!!!");
 
             mailSender.send(simpleMail);
             return "redirect:/indexJob";

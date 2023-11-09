@@ -48,14 +48,17 @@ public class Company implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @NotNull(message = "{company.name.notNullMsg}")
+    @Size(min = 5, max = 255, message = "{company.name.lenErrMsg}")
     @Column(name = "name")
     private String name;
-    @Size(max = 255)
+    
+    @Size(max = 255, message = "{company.address.lenErrMsg}")
     @Column(name = "address")
     private String address;
+    
     @Size(max = 4)
     @Column(name = "establish")
     private String establish;

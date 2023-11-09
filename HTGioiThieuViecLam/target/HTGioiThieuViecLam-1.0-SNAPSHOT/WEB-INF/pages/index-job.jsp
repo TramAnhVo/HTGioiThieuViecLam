@@ -10,6 +10,7 @@
 
 <c:url value="/indexJob" var="action" />
 <section class="d-flex" style="justify-content: center; background-color: #F2F2F2; padding: 1%">  
+    
     <div class="dropdown dropdown-menu-end">
         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
             <i class="fa-solid fa-building"></i> Doanh nghiệp
@@ -65,7 +66,7 @@
         <ul class="dropdown-menu">
             <c:forEach items="${positions}" var="c">
                 <c:url value="/indexJob" var="searchUrl">
-                    <c:param name="majorId" value="${c.id}" />
+                    <c:param name="positionId" value="${c.id}" />
                 </c:url>
                 <li>
                     <a class="dropdown-item" href="${searchUrl}">${c.name}</a>

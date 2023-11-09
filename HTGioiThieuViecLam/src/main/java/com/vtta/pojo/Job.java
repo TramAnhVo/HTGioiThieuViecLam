@@ -53,23 +53,27 @@ public class Job implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @NotNull(message = "{job.title.notNullMsg}")
+    @Size(min = 5, max = 255, message = "{job.title.lenErrMsg}")
     @Column(name = "title")
     private String title;
+    
     @Basic(optional = false)
     @NotNull
     @Lob
-    @Size(min = 1, max = 2147483647)
+    @Size(min = 5, max = 2147483647, message = "{job.description.lenErrMsg}")
     @Column(name = "description")
     private String description;
+    
     @Basic(optional = false)
     @NotNull
     @Lob
-    @Size(min = 1, max = 2147483647)
+    @Size(min = 5, max = 2147483647, message = "{job.requirement.lenErrMsg}")
     @Column(name = "requirement")
     private String requirement;
+    
     @Column(name = "create_day")
     @Temporal(TemporalType.DATE)
     private Date createDay;

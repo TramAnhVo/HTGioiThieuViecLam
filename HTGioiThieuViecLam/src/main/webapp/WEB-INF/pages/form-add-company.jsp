@@ -54,7 +54,6 @@
             <form:input type="file" class="form-control" id="file" 
                         path="file" name="file" />
             <label for="file">Logo doanh nghiệp</label>
-            <%--<form:errors path="file" element="div" cssClass="text-danger" />--%>
 
             <c:if test="${company.image != null}">
                 <img src="${company.image}" width="120" />

@@ -68,6 +68,11 @@ public class JobRepositoryImpl implements JobRepository {
             if (majorId != null && !majorId.isEmpty()) {
                 predicates.add(b.equal(root.get("majorId"), Integer.parseInt(majorId)));
             }
+            
+            String positionId = params.get("positionId");
+            if (positionId != null && !positionId.isEmpty()) {
+                predicates.add(b.equal(root.get("positionId"), Integer.parseInt(positionId)));
+            }
 
             q.where(predicates.toArray(Predicate[]::new));
         }
@@ -146,5 +151,4 @@ public class JobRepositoryImpl implements JobRepository {
         Query query = s.createQuery(q);
         return query.getResultList();
     }
-
 }

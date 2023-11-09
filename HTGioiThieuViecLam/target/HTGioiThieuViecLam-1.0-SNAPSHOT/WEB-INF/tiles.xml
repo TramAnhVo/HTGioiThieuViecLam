@@ -97,6 +97,11 @@
                        value="/WEB-INF/pages/list-company.jsp" />
     </definition>
     
+    <definition name="manageBlog" extends="baseLayout">
+        <put-attribute name="title" value="Quản lý bài đăng tìm việc"/>
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/manager-blogs.jsp" />
+    </definition>
     <!-- USERS -->
     
     <!--chi tiet cong viec (index)-->

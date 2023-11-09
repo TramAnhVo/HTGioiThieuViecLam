@@ -65,11 +65,15 @@
 
                 <se:authorize access="hasRole('ROLE_EMPLOYER')">
                     <li class="nav-item" style="margin-right: 10px">
+                        <a class="nav-link btn btn-success text-white" href="<c:url value="/employer/jobs" />">Quản lý bài đăng</a>
+                    </li>
+                    
+                    <li class="nav-item" style="margin-right: 10px">
                         <a class="nav-link btn btn-success text-white" href="<c:url value="/employer/formJob" />">Đăng bài</a>
                     </li>
 
                     <li class="nav-item" style="margin-right: 10px">
-                        <a class="nav-link btn btn-success text-white" href="<c:url value="/employer/manageCv" />">Xem ứng viên</a>
+                        <a class="nav-link btn btn-success text-white" href="<c:url value="/employer/manageCv" />">Quản lý ứng viên</a>
                     </li>
                 </se:authorize>
 

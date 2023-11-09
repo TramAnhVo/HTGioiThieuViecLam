@@ -4,11 +4,8 @@
  */
 package com.vtta.pojo;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
-import java.util.Set;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,12 +13,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -33,7 +28,8 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Major.findAll", query = "SELECT m FROM Major m"),
     @NamedQuery(name = "Major.findById", query = "SELECT m FROM Major m WHERE m.id = :id"),
-    @NamedQuery(name = "Major.findByName", query = "SELECT m FROM Major m WHERE m.name = :name")})
+    @NamedQuery(name = "Major.findByName", query = "SELECT m FROM Major m WHERE m.name = :name"),
+    @NamedQuery(name = "Major.findByImage", query = "SELECT m FROM Major m WHERE m.image = :image")})
 public class Major implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,10 +43,9 @@ public class Major implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "name")
     private String name;
-    
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "majorId")
-    @JsonIgnore
-    private Set<Job> jobSet;
+    @Size(max = 255)
+    @Column(name = "image")
+    private String image;
 
     public Major() {
     }
@@ -80,13 +75,12 @@ public class Major implements Serializable {
         this.name = name;
     }
 
-    @XmlTransient
-    public Set<Job> getJobSet() {
-        return jobSet;
+    public String getImage() {
+        return image;
     }
 
-    public void setJobSet(Set<Job> jobSet) {
-        this.jobSet = jobSet;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     @Override

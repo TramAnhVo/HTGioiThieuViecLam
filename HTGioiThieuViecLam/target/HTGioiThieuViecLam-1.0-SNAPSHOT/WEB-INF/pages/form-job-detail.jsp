@@ -18,19 +18,19 @@
         <div class="form-floating mb-3 mt-3">
             <form:input type="text" class="form-control" path="title" id="title" placeholder="Vị trí công việc" name="title" />
             <label for="title">Vị trí công việc</label>
-            <%--<form:errors path="title" element="div" cssClass="text-danger" />--%>
+            <form:errors path="title" element="div" cssClass="text-danger" />
         </div>
 
         <div class="form-floating mb-3 mt-3">
             <form:textarea class="form-control" id="des" name="des" path="description" placeholder="Mô tả công việc"></form:textarea>
                 <label for="des">Mô tả công việc</label>
-            <%--<form:errors path="description" element="div" cssClass="text-danger" />--%>
+            <form:errors path="description" element="div" cssClass="text-danger" />
         </div>
 
         <div class="form-floating mb-3 mt-3">
             <form:textarea class="form-control tex" id="req" name="req" path="requirement" placeholder="Yêu cầu công việc"></form:textarea>
             <label for="req">Yêu cầu công việc</label>
-            <%--<form:errors path="description" element="div" cssClass="text-danger" />--%>
+            <form:errors path="description" element="div" cssClass="text-danger" />
         </div>
 
         <div class="form-floating mb-3 mt-3">

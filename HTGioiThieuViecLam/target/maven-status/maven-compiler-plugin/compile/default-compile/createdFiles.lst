@@ -10,6 +10,7 @@ com\vtta\configs\HibernateConfig.class
 com\vtta\service\impl\MajorServiceImpl.class
 com\vtta\pojo\Job_.class
 com\vtta\repository\UserRepository.class
+com\vtta\controllers\DeleteController.class
 com\vtta\repository\impl\CommentRepositoryImpl.class
 com\vtta\service\impl\PositionServiceImpl.class
 com\vtta\pojo\Major.class

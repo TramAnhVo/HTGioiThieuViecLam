@@ -29,12 +29,6 @@ public class ApiLocationController {
     @Autowired
     private LocationService locationService;
 
-    @GetMapping("/api/locations/")
-    @CrossOrigin
-    public ResponseEntity<List<Location>> list() {
-        return new ResponseEntity<>(this.locationService.getLocation(), HttpStatus.OK);
-    }
-
     @DeleteMapping("/locations/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable(value = "id") int id) {

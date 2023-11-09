@@ -58,44 +58,52 @@ public class User implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    
     @Basic(optional = false)
-    @NotNull
+    @NotNull(message = "{user.firstName.notNullMsg}")
     @Size(min = 1, max = 45)
     @Column(name = "first_name")
     private String firstName;
+    
     @Basic(optional = false)
-    @NotNull
+    @NotNull(message = "{user.lastName.notNullMsg}")
     @Size(min = 1, max = 45)
     @Column(name = "last_name")
     private String lastName;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 10)
     @Column(name = "gender")
     private String gender;
+    
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @NotNull(message = "{user.email.notNullMsg}")
+    @Size(min = 5 , max = 255)
     @Column(name = "email")
     private String email;
+    
     // @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message="Invalid phone/fax format, should be as xxx-xxx-xxxx")//if the field contains phone or fax number consider using this annotation to enforce field validation
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 10)
+    @NotNull(message = "{user.phone.notNullMsg}")
+    @Size(min = 5, max = 10)
     @Column(name = "phone")
     private String phone;
+    
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
+    @NotNull(message = "{user.username.notNullMsg}")
+    @Size(min = 5, max = 45)
     @Column(name = "username")
     private String username;
+    
     @Basic(optional = false)
-    @NotNull
+    @NotNull(message = "{user.password.notNullMsg}")
     @Lob
-    @Size(min = 1, max = 2147483647)
+    @Size(min = 5, max = 2147483647)
     @Column(name = "password")
     private String password;
+    
     @Basic(optional = false)
     @NotNull
     @Lob

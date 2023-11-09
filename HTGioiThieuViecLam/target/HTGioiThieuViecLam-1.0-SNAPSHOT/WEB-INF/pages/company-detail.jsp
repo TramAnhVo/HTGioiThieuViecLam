@@ -94,77 +94,40 @@
                         <p><i class="mt-2 mb-2 fa-solid fa-link"></i> ${company.link}</p>
                     </div>
                 </div>
-                <!-- End Author --> 
-                <!-- Latest Post -->
+
                 <div class="widget widget-latest-post">
                     <div class="widget-title">
-                        <h3>Latest Post</h3>
+                        <h3>Bài đăng công viên gần đây</h3>
                     </div>
+
                     <div class="widget-body">
-                        <div class="latest-post-aside media">
-                            <div class="lpa-left media-body">
-                                <div class="lpa-title">
-                                    <h5><a href="#">Prevent 75% of visitors from google analytics</a></h5>
+                        <c:set var="cout" value="0"/>
+                        <c:forEach items="${job}" var="j">
+                            <c:if test="${cout < 5}">
+
+                                <div class="latest-post-aside media">
+                                    <li class="row clearfix">
+                                        <div class="icon-box col-md-2 col-4">
+                                            <img src="${company.image}" alt="${j.title} ">
+                                        </div>
+                                        <div class="text-box col-md-10 col-8 p-l-0 p-r0">
+                                            <a href="<c:url value="/jobs/${j.id}"/>" style="text-decoration: none; color: black">
+                                                <h5 class="m-b-0">${j.title} </h5>
+                                            </a>
+                                            <p style="margin-bottom: 5px" >Địa điểm làm việc: ${j.locationId.name}</p> 
+                                            <p>Ngày đăng: <fmt:formatDate pattern="dd-MM-yyyy" value="${j.createDay}"/></p>
+                                        </div>
+                                    </li>    
                                 </div>
-                                <div class="lpa-meta">
-                                    <a class="name" href="#">
-                                        Rachel Roth
-                                    </a>
-                                    <a class="date" href="#">
-                                        26 FEB 2020
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="lpa-right">
-                                <a href="#">
-                                    <img src="https://www.bootdey.com/image/400x200/FFB6C1/000000" title="" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="latest-post-aside media">
-                            <div class="lpa-left media-body">
-                                <div class="lpa-title">
-                                    <h5><a href="#">Prevent 75% of visitors from google analytics</a></h5>
-                                </div>
-                                <div class="lpa-meta">
-                                    <a class="name" href="#">
-                                        Rachel Roth
-                                    </a>
-                                    <a class="date" href="#">
-                                        26 FEB 2020
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="lpa-right">
-                                <a href="#">
-                                    <img src="https://www.bootdey.com/image/400x200/FFB6C1/000000" title="" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="latest-post-aside media">
-                            <div class="lpa-left media-body">
-                                <div class="lpa-title">
-                                    <h5><a href="#">Prevent 75% of visitors from google analytics</a></h5>
-                                </div>
-                                <div class="lpa-meta">
-                                    <a class="name" href="#">
-                                        Rachel Roth
-                                    </a>
-                                    <a class="date" href="#">
-                                        26 FEB 2020
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="lpa-right">
-                                <a href="#">
-                                    <img src="https://www.bootdey.com/image/400x200/FFB6C1/000000" title="" alt="">
-                                </a>
-                            </div>
-                        </div>
+
+                                <c:set var="cout" value="${cout+1}"/>
+                            </c:if>
+                        </c:forEach>
                     </div>
                 </div>
-                <!-- End widget Tags -->
             </div>
+
         </div>
     </div>
+</div>
 </div>

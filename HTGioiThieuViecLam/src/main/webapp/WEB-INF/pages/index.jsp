@@ -50,7 +50,7 @@
     </div>
 
     <div class="row" style="justify-content: space-between">
-        <c:forEach begin="1" end="5" items="${companies}" var="c">
+        <c:forEach begin="0" end="4" items="${companies}" var="c">
             <c:url value="/companies/${c.id}" var="detail" />
             <div class="card">
                 <img src="${c.image}" alt="${c.name}" style="width:100%; height: 150px">
@@ -69,7 +69,7 @@
     </div>
 
     <div class="row">
-        <c:forEach begin="1" end="8" items="${jobs}" var="j">
+        <c:forEach begin="0" end="7" items="${jobs}" var="j">
             <c:url value="/jobs/${j.id}" var="detail"/>
             <div class="item">
                 <div class="col-img">
@@ -93,61 +93,20 @@
     </div>
 
     <div class="row mt-3">
-        <div class="col-2">
-            <div class="image container">
-                <img class="img1" src="https://www.topcv.vn/v4/image/welcome/top-categories/kinh-doanh-ban-hang.png" />
-            </div>
-            <h5 class="text-center">Kinh doanh / bán hàng</h5>
-        </div>
+        <c:forEach items="${majors}" var="m" >
+            <c:url value="/indexJob" var="searchUrl">
+                <c:param name="majorId" value="${m.id}" />
+            </c:url>            
+                <div class="col-2">
+                    <a href="${searchUrl}" style="text-decoration: none">
+                    <div class="image container">
+                        <img class="img1" src="${m.image}" />
+                    </div>
 
-        <div class="col-2">
-            <div class="image container">
-                <img class="img1" src="https://www.topcv.vn/v4/image/welcome/top-categories/it-phan-mem.png" />
-            </div>
-            <h5 class="text-center">IT Phần mềm</h5>
-        </div>
-
-        <div class="col-2">
-            <div class="image container">
-                <img class="img1" src="https://www.topcv.vn/v4/image/welcome/top-categories/hanh-chinh-van-phong.png" />
-            </div>
-            <h5 class="text-center">Hành chính văn phòng</h5>
-        </div>
-
-        <div class="col-2">
-            <div class="image container">
-                <img class="img1" src="https://www.topcv.vn/v4/image/welcome/top-categories/giao-duc-dao-tao.png" />
-            </div>
-            <h5 class="text-center">Giáo dục đào tạo</h5>
-        </div>
-
-        <div class="col-2">
-            <div class="image container">
-                <img class="img1" src="https://www.topcv.vn/v4/image/welcome/top-categories/tu-van.png" />
-            </div>
-            <h5 class="text-center">Tư vấn</h5>
-        </div>
-
-        <div class="col-2">
-            <div class="image container">
-                <img class="img1" src="https://www.topcv.vn/v4/image/welcome/top-categories/marketing-truyen-thong-quang-cao.png" />
-            </div>
-            <h5 class="text-center">Marketing truyền thông quảng cáo</h5>
-        </div>
-
-        <div class="col-2">
-            <div class="image container">
-                <img class="img1" src="https://www.topcv.vn/v4/image/welcome/top-categories/van-tai-kho-van.png" />
-            </div>
-            <h5 class="text-center">Vận tải kho vận</h5>
-        </div>
-
-        <div class="col-2">
-            <div class="image container">
-                <img class="img1" src="https://www.topcv.vn/v4/image/welcome/top-categories/ke-toan-kiem-toan.png" />
-            </div>
-            <h5 class="text-center">Kế toán kiểm toán</h5>
-        </div>
+                        <h5 class="text-center" style="color: black" >${m.name}</h5>
+                    </a>
+                </div>            
+        </c:forEach>
     </div>
 </section>
 

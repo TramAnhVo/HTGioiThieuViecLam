@@ -52,26 +52,29 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String register(Model model, @ModelAttribute(value = "user") User u) {
+    public String register(Model model, @ModelAttribute(value = "user") @Valid User u, BindingResult rs) {
         String errMsg = "";
-        if (u.getPassword().equals(u.getConfirmPassword())) {
-            if (this.userService.addUser(u) == true) {
 
-                SimpleMailMessage simpleMail = new SimpleMailMessage();
-                simpleMail.setTo(u.getEmail());
-                simpleMail.setSubject("Thông báo");
-                simpleMail.setText("Bạn đã đăng kí thành công !!! chào mừng bạn "
-                        + u.getFirstName() + " " + u.getLastName());
+        if (!rs.hasErrors()) {
+            if (u.getPassword().equals(u.getConfirmPassword())) {
+                if (this.userService.addUser(u) == true) {
+                    SimpleMailMessage simpleMail = new SimpleMailMessage();
+                    simpleMail.setTo(u.getEmail());
+                    simpleMail.setSubject("Thông báo");
+                    simpleMail.setText("Bạn đã đăng kí thành công !!! chào mừng bạn "
+                            + u.getFirstName() + " " + u.getLastName() + ". Nếu bạn đăng kí với vai trò ứng viên bạn có quyền đăng nhập ngay."
+                            + ". Còn nếu bạn đăng kí với nhà tuyển dụng. Vui lòng đợi quản trị viên cấp phép hoạt động. Xin trân trọng cảm ơn!");
 
-                mailSender.send(simpleMail);
-                return "redirect:/";
+                    mailSender.send(simpleMail);
+                    return "redirect:/";
+                } else {
+                    errMsg = "Đã có lỗi xảy ra !!";
+                }
             } else {
-                errMsg = "Đã có lỗi xảy ra !!";
+                errMsg = "Mật khẩu nhập không khớp !!";
             }
-        } else {
-            errMsg = "Mật khẩu nhập không khớp !!";
-        }
-        model.addAttribute("errMsg", errMsg);
+            model.addAttribute("errMsg", errMsg);
+        }     
         return "register";
     }
 

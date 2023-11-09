@@ -16,15 +16,18 @@
         <a class="nav-link" href="<c:url value="/admin/companies" />">Doanh nghiệp</a>
     </div>
     <div class="p-2">
+        <a class="nav-link" href="<c:url value="/admin/users" />">Người dùng</a>
+    </div>
+    <div class="p-2">
+        <a class="nav-link" href="<c:url value="/admin/jobs" />">Công việc</a>
+    </div>
+    <div class="p-2">
         <a class="nav-link" href="<c:url value="/locations" />">Khu vực</a>
     </div>
     <div class="p-2">
         <a class="nav-link" href="<c:url value="/majors" />">Ngành nghề</a>
     </div>
     <div class="p-2">
-        <a class="nav-link" href="<c:url value="/admin/users" />">Người dùng</a>
-    </div>
-    <div class="p-2">
-        <a class="nav-link" href="<c:url value="/admin/jobs" />">Công việc</a>
+        <a class="nav-link" href="<c:url value="/admin/manageBlog" />">Bài đăng tìm việc</a>
     </div>
 </nav>

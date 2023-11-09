@@ -32,7 +32,6 @@
                 </se:authorize>
 
                 <se:authorize access="hasRole('ROLE_USER')">
-
                     <c:url value="/jobs/${job.id}/formApply" var="Url" />
                     <a href="${Url}" class="btn btn-success btn-lg">Nộp đơn ứng tuyển</a>
                 </se:authorize>

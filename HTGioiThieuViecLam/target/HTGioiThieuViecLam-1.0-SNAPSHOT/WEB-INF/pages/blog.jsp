@@ -7,20 +7,21 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="se" uri="http://www.springframework.org/security/tags" %>
 <link href="<c:url value="/css/blog.css"/>" rel="stylesheet" type="text/css">
 <c:url value="/blog" var="action" />
 
 <style>
     #content {
-        height: 150px;
+        height: 150px;  
     }
 </style>
 
+<se:authorize access="hasRole('ROLE_USER')">
 <div class="mt-4 mb-4">
-    
     <form:form modelAttribute="blog" method="post" action="${action}" enctype="multipart/form-data">
         <div class="form-floating mb-3 mt-3 container">
-            <form:textarea class="form-control" id="content" name="content" path="content" placeholder="Bạn muốn viết gì?"></form:textarea>
+            <form:textarea class="for   m-control" id="content" name="content" path="content" placeholder="Bạn muốn viết gì?"></form:textarea>
             <label style="margin-left: 10px">Bạn đang nghĩ gì? ....</label>
         </div> 
 
@@ -34,6 +35,7 @@
         </div>
     </form:form>
 </div>
+</se:authorize>
 
 <div class="container bootstrap snippets bootdey">
     <div class="row mt-4">       
@@ -62,9 +64,11 @@
     </div>
 </div>
 
+<div>
+    
+</div>
+
 <script>
-    
-    
     // Lấy tham chiếu đến phần tử div
     var divElement = document.getElementById("myDiv");
 

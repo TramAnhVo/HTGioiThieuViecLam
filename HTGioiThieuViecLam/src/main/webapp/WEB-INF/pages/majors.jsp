@@ -17,7 +17,7 @@
         <div class="form-floating mb-3 mt-5">
             <form:input type="text" class="form-control" path="name" id="name" placeholder="Tên ngành nghề" name="name" />
             <label for="name">Tên ngành nghề</label>
-            <%--<form:errors path="name" element="div" cssClass="text-danger" />--%>
+            <form:errors path="name" element="div" cssClass="text-danger" />
         </div>
 
         <div class="form-floating mb-3 mt-3">

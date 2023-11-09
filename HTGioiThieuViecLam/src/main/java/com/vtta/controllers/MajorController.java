@@ -37,13 +37,13 @@ public class MajorController {
     }
 
     @PostMapping("/majors")
-    public String add(Model model, @ModelAttribute(value = "major") @Valid Major p) {
+    public String add(Model model, @ModelAttribute(value = "major") @Valid Major p, BindingResult rs) {
 
-//        if (!rs.hasErrors()) {
+        if (!rs.hasErrors()) {
             if (this.majorService.addOrUpdateMajor(p) == true) {
                 return "redirect:/majors";
             }
-//        }
+        }
         return "majors";
     }
 

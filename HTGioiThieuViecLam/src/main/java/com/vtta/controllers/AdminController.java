@@ -4,9 +4,11 @@
  */
 package com.vtta.controllers;
 
+import com.vtta.pojo.Blog;
 import com.vtta.pojo.Company;
 import com.vtta.pojo.Job;
 import com.vtta.pojo.User;
+import com.vtta.service.BlogService;
 import com.vtta.service.CompanyService;
 import com.vtta.service.JobService;
 import com.vtta.service.LocationService;
@@ -14,6 +16,7 @@ import com.vtta.service.MajorService;
 import com.vtta.service.PositionService;
 import com.vtta.service.StatsService;
 import com.vtta.service.UserService;
+import java.security.Principal;
 import java.util.Map;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +65,9 @@ public class AdminController {
     @Autowired
     private StatsService statsService;
 
+    @Autowired
+    private BlogService blogService;
+
     // ====================== QUAN LY CONG VIEC =========================================================
     @RequestMapping("/jobs/formJobDetail")
     public String jobDetails(Model model) {
@@ -89,9 +95,10 @@ public class AdminController {
     @PostMapping("/jobs/formJobDetail")
     public String add(Model model, @ModelAttribute(value = "job") @Valid Job p,
             BindingResult rs) {
-
-        if (this.jobservice.addOrUpdateJob(p) == true) {
-            return "redirect:/admin/jobs";
+        if (!rs.hasErrors()) {
+            if (this.jobservice.addOrUpdateJob(p) == true) {
+                return "redirect:/admin/jobs";
+            }
         }
         return "formJobDetail";
     }
@@ -128,10 +135,12 @@ public class AdminController {
     }
 
     @PostMapping("/companies/formAddCompany")
-    public String addCompany(Model model, @ModelAttribute(value = "company") Company p) {
+    public String addCompany(Model model, @ModelAttribute(value = "company") @Valid Company p, BindingResult rs) {
 
-        if (this.companyService.addCompany(p) == true) {
-            return "redirect:/admin/companies";
+        if (!rs.hasErrors()) {
+            if (this.companyService.addCompany(p) == true) {
+                return "redirect:/admin/companies";
+            }
         }
         return "formAddCompany";
     }
@@ -170,17 +179,17 @@ public class AdminController {
     @GetMapping("/users")
     public String userInfomation(Model model) {
         model.addAttribute("userInfo", this.userService.getUsers());
-        
+
         return "users";
     }
-    
+
     @GetMapping("/users/formUser")
     public String userForm(Model model) {
         model.addAttribute("user", new User());
-        
+
         return "formUser";
     }
-    
+
     @PostMapping("/users/formUser")
     public String addUser(Model model, @ModelAttribute(value = "user") User u) {
 
@@ -189,11 +198,38 @@ public class AdminController {
         }
         return "formUser";
     }
-    
+
     @GetMapping("/users/formUser/{id}")
     public String updateUserInfomation(Model model, @PathVariable(value = "id") int id) {
         model.addAttribute("user", this.userService.getIdUser(id));
-        
+
         return "formUser";
+    }
+
+    // ====================== QUAN LY DIEN DAN BAI TIM VIEC =========================================================
+    @GetMapping("/manageBlog")
+    public String blog(Model model) {
+        model.addAttribute("blogs", this.blogService.getBlog());
+        model.addAttribute("blog", new Blog());
+
+        return "manageBlog";
+    }
+
+    @PostMapping("/manageBlog")
+    public String addBlog(@ModelAttribute(value = "blog") Blog b, Principal pricipal) {
+        User u = this.userService.getUserByUsername(pricipal.getName());
+        b.setUserId(u);
+
+        if (this.blogService.addOrUpdateBlog(b) == true) {
+            return "redirect:/admin/manageBlog";
+        }
+        return "manageBlog";
+    }
+
+    @GetMapping("/manageBlog/{id}")
+    public String BlogId(Model model, @PathVariable(value = "id") int id) {
+        model.addAttribute("blogs", this.blogService.getBlogById(id));
+
+        return "manageBlog";
     }
 }

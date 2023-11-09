@@ -33,6 +33,7 @@ public class ApiCompanyController {
     @Autowired
     private JavaMailSender mailSender;
     
+    // ==== xoa daonh nghiep =========================
     @DeleteMapping("/admin/companies/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable(value = "id") int id) {
@@ -40,6 +41,7 @@ public class ApiCompanyController {
         this.compaService.deleteCompany(u.getCompanyId().getId());
     }
     
+    // ===== gui mail tu dong =======
     @PutMapping("/admin/companies/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateActive(@PathVariable(value = "id") int id) {

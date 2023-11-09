@@ -80,6 +80,7 @@ public class HomeController {
         return "index";
     }
 
+    // ========================== BAI DANG CONG VIEC ==============================================
     @GetMapping(path = "/jobs/{jobId}")
     public String jobDetails(Model model, @PathVariable(value = "jobId") int id) {
         model.addAttribute("job", this.jobservice.getJobById(id));
@@ -106,7 +107,7 @@ public class HomeController {
         
         Company com = this.companyService.getCompanyById(id);
         model.addAttribute("cmts",this.commentService.getComments(com));
-        
+        model.addAttribute("job", this.jobservice.getJobsByComId(com));
         return "companyDetail";
     }
         

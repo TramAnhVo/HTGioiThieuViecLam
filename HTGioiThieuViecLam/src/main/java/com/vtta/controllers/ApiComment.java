@@ -40,12 +40,6 @@ public class ApiComment {
     @Autowired
     private UserService userService;
 
-//    @GetMapping("/jobs/{id}/comments")
-//    public ResponseEntity<List<Comment>> getComments(@PathVariable(value = "id") int id) {
-//        List<Comment> comments = this.commentService.getComments();
-//        return new ResponseEntity<>(comments, HttpStatus.OK);
-//    }
-
     @PostMapping(path = "/jobs/{id}/comments", produces = {
         MediaType.APPLICATION_JSON_VALUE
     })

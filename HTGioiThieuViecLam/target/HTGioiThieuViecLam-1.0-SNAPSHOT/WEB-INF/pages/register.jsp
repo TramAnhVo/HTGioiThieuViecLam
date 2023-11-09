@@ -14,19 +14,21 @@
 
 <section>
     <form:form cssClass="conatiner dk" modelAttribute="user" action="${action}" method="post" enctype="multipart/form-data">
+        <form:hidden path="id" />
+        
         <h2 class="mt-3 text-center text-success">ĐĂNG KÍ TÀI KHOẢN</h2>
 
         <div class="row">
             <div class="form-floating mt-2 col-50" style="padding-left: 0">
                 <form:input type="text" class="form-control" path="firstName" id="firstName" placeholder="Họ" name="firstName" />
                 <label for="firstName" style="padding: 20px">Họ</label>
-                <%--<form:errors path="title" element="div" cssClass="text-danger" />--%>
+                <form:errors path="firstName" element="div" cssClass="text-danger" />
             </div>
 
             <div class="form-floating mt-2 col-50">
                 <form:input type="text" class="form-control" path="lastName" id="lastName" placeholder="Tên" name="lastName" />
                 <label for="lastName" style="padding: 20px">Tên</label>
-                <%--<form:errors path="title" element="div" cssClass="text-danger" />--%>
+                <form:errors path="lastName" element="div" cssClass="text-danger" />
             </div>
         </div>
 
@@ -54,31 +56,30 @@
         <div class="form-floating mb-2 mt-2">
             <form:input type="email" class="form-control" path="email" id="email" placeholder="email" name="email" />
             <label for="email"><i class="fa-solid fa-envelope"></i> Email</label>
-            <%--<form:errors path="salary" element="div" cssClass="text-danger" />--%>
+            <form:errors path="email" element="div" cssClass="text-danger" />
         </div>
 
         <div class="form-floating mb-2 mt-2">
             <form:input type="text" class="form-control" path="phone" id="phone" placeholder="Số điện thoại" name="phone" />
             <label for="phone"><i class="fa-solid fa-phone"></i> Số điện thoại</label>
-            <%--<form:errors path="salary" element="div" cssClass="text-danger" />--%>
+            <form:errors path="phone" element="div" cssClass="text-danger" />
         </div>
 
         <div class="form-floating mb-2 mt-2">
             <form:input type="text" class="form-control" path="username" id="username" placeholder="Tên đăng nhập" name="username" />
             <label for="username"><i class="fa-solid fa-user"></i> Tên đăng nhập</label>
-            <%--<form:errors path="salary" element="div" cssClass="text-danger" />--%>
+            <form:errors path="username" element="div" cssClass="text-danger" />
         </div>
 
         <div class="form-floating mb-2 mt-2">
             <form:input type="password" class="form-control" path="password" id="password" placeholder="Mật khẩu" name="password" />
             <label for="password"><i class="fa-solid fa-key"></i> Mật khẩu</label>
-            <%--<form:errors path="salary" element="div" cssClass="text-danger" />--%>
+            <form:errors path="password" element="div" cssClass="text-danger" />
         </div>
 
         <div class="form-floating mb-2 mt-2">
             <form:input type="password" class="form-control" path="confirmPassword" id="confirm-password" placeholder="Xác nhận mật khẩu" name="confirm-password" />
             <label for="confirm-password"><i class="fa-solid fa-key"></i> Xác nhận mật khẩu</label>
-            <%--<form:errors path="salary" element="div" cssClass="text-danger" />--%>
         </div>
 
         <c:if test="${errMsg != null}">
@@ -105,13 +106,11 @@
             <div class="form-floating mb-2 mt-2">
                 <form:input type="companyName" class="form-control" path="companyName" id="companyName" placeholder="Tên doanh nghiệp" name="companyName" />
                 <label for="companyName"><i class="fa-solid fa-key"></i> Tên doanh nghiệp</label>
-                <%--<form:errors path="salary" element="div" cssClass="text-danger" />--%>
             </div>
 
             <div class="form-floating mb-2 mt-2">
                 <form:input type="addressName" class="form-control" path="AddressCompany" id="addressName" placeholder="Địa chỉ doanh nghiệp" name="addressName" />
                 <label for="addressName"><i class="fa-solid fa-location-dot"></i> Địa chỉ doanh nghiệp</label>
-                <%--<form:errors path="salary" element="div" cssClass="text-danger" />--%>
             </div>
         </div>
 

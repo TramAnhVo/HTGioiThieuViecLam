@@ -8,7 +8,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<c:url value="/employer/formJob" var="action" />
+<c:url value="/employer/jobs/formJob" var="action" />
 
 <section>
     <form:form cssClass="conatiner dk" modelAttribute="job" action="${action}" method="post" enctype="multipart/form-data">
@@ -18,7 +18,7 @@
         <div class="form-floating mb-3 mt-3">
             <form:input type="text" class="form-control" path="title" id="title" placeholder="Vị trí công việc" name="title" />
             <label for="title"><i class="fa-solid fa-pen-clip"></i> Vị trí công việc</label>
-            <%--<form:errors path="title" element="div" cssClass="text-danger" />--%>
+            <form:errors path="title" element="div" cssClass="text-danger" />
         </div>
 
         <div class="form-floating mb-3 mt-3">

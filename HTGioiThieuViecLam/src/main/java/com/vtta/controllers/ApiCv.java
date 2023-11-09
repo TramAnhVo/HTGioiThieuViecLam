@@ -36,7 +36,8 @@ public class ApiCv {
 
     @Autowired
     private JavaMailSender mailSender;
-
+    
+    // ==== GUI MAIL TU DONG ============================
     @PutMapping("/employer/manageCv/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateActive(@PathVariable(value = "id") int id) {
@@ -52,7 +53,7 @@ public class ApiCv {
                 + " đã trúng tuyển công việc " + cv.getJobId().getTitle()
                 + " ở " + cv.getJobId().getLocationId().getName()
                 + ". Hãy chờ liên lạc của công ty" + cv.getJobId().getCompanyId().getName()
-                + "hoặc có thể liên lạc qua mail này " + cv.getJobId().getCompanyId().getEmail());
+                + " hoặc có thể liên lạc qua mail này " + cv.getJobId().getCompanyId().getEmail());
 
         mailSender.send(simpleMail);
     }

@@ -22,7 +22,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -60,19 +62,29 @@ public class EmployerController {
         model.addAttribute("majors", this.majorService.getMajor());
         model.addAttribute("positions", this.positionService.getPosition());
     }
-
+    
+    //==================  dang bai tuyen dung ====================================
     @RequestMapping("/formJob")
     public String addJob(Model model, HttpSession session) {
         model.addAttribute("job", new Job());
 
         return "formJob";
     }
-    
-    //==================  dang bai tuyen dung ====================================
-    @PostMapping("/formJob")
-    public String add(Model model, @ModelAttribute(value = "job") @Valid Job p,
-            BindingResult rs) {
+        
+    @RequestMapping("/jobs")
+    public String jobs(Model model, Principal pricipal, HttpSession session) {
 
+        User u = this.userService.getUserByUsername(pricipal.getName());
+        String role = "ROLE_EMPLOYER";
+        if (u.getUserRole().equals(role)) {
+            model.addAttribute("jobsC", this.jobService.getJobsByComId(u.getCompanyId()));
+        }        
+        return "jobs";
+    }
+    
+    @PostMapping("/jobs/formJob")
+    public String add(Model model, @ModelAttribute(value = "job") Job p) {
+        
         Object currentUser = session.getAttribute("currentUser");
         if (currentUser != null) {
             if (currentUser instanceof User) {
@@ -87,6 +99,13 @@ public class EmployerController {
         }
         return "formJob";
     }
+
+    @GetMapping("/jobs/formJob/{id}")
+    public String getJobById(Model model, @PathVariable(value = "id") int id, Principal pricipal, HttpSession session) {
+        model.addAttribute("job", this.jobService.getJobById(id));
+
+        return "formJob";
+    }
     
     //==================  quan li ho so ung tuyen ====================================
     @RequestMapping("/manageCv")
@@ -98,4 +117,5 @@ public class EmployerController {
         
         return "manageCv";
     }
+    
 }
